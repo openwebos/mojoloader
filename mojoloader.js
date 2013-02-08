@@ -278,10 +278,10 @@ if (typeof MojoLoader === 'undefined')
 		{
 			var info = this._locate(library.name, library.version);
 
-			if (this.isNode() && this._loadNodeBuiltin(library, info.base)) {
+			if (this.isNode() && info !== undefined && this._loadNodeBuiltin(library, info.base)) {
 				return library;
 			}
-			else if (!this.isNode() && this._loadBuiltin(library, info.base)) {
+			else if (!this.isNode() && info !== undefined && this._loadBuiltin(library, info.base)) {
 				return library;
 			}
 			else {
