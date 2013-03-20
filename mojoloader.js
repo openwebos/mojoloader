@@ -185,7 +185,7 @@ if (typeof MojoLoader === 'undefined')
 			 */
 			var data = palmGetResource(base + "concatenated.js");
 
-			if (data === null) {
+			if (!data) {
 				data = "this._root[lname] = function(MojoLoader, exports, root) {\n";
 				jbase = base + "javascript/";
 				sources = manifest.files.javascript;
