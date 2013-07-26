@@ -207,6 +207,15 @@ if (typeof MojoLoader === 'undefined')
 		{
 			var jbase = base + "javascript/";
 			var paths = [];
+			var catPath;
+			if (this.isNode()) {
+				var fs=require('fs');
+				catPath = base+"concatenated.js";
+				if (fs.existsSync(catPath)) {
+					library.exports = this._propogateGlobals(require(catPath), this._root);
+					return;
+				}
+			}
 			var sources = manifest.files.javascript;
 			var slen = sources.length;
 			for (var i = 0; i < slen; i++)
@@ -416,3 +425,4 @@ if (typeof MojoLoader === 'undefined')
 		}
 	}
 } // end if (!MojoLoader)
+
