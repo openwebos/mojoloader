@@ -210,7 +210,7 @@ if (typeof MojoLoader === 'undefined')
 			var catPath;
 			if (this.isNode()) {
 				var fs=require('fs');
-				catPath = base+"concatenated.js";
+				catPath = base+"node_module.js";
 				if (fs.existsSync(catPath)) {
 					library.exports = this._propogateGlobals(require(catPath), this._root);
 					return;

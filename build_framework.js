@@ -25,5 +25,5 @@ for (var i=0; i<files.length; i++) {
 }
 source +="\n";
 module.exports=exports;
-fs.writeFileSync("concatenated.js", source);
+fs.writeFileSync("node_module.js", source);
 
